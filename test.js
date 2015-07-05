@@ -1,11 +1,13 @@
-var PocketSphinx = require('pocketsphinx');
+var PocketSphinx = require('./pocketsphinx.js');
 
-var ps = new PocketSphinx();
+var recognizer = new PocketSphinx.Recognizer();
 
-ps.on('utterance', function(hyp, utt, score) {
+//var ps = new PocketSphinx();
+
+recognizer.on('utterance', function(hyp, utt, score) {
     console.log( 'Guessed phrase: ' + hyp);
     console.log( 'Confidence score: ' + score);
     console.log( 'Unique utterance id: ' + utt);
 });
 
-ps.write(myMicrophoneData);
+recognizer.write(myMicrophoneData);
